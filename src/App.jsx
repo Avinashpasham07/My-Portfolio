@@ -1,6 +1,7 @@
-// src/App.jsx
 import React, { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
+import { Analytics } from "@vercel/analytics/react";   // ✅ Added
+
 import HeroSection from "./components/HeroSection";
 import ProjectsSection from "./components/ProjectsSection";
 import SkillsSection from "./components/SkillsSection";
@@ -8,8 +9,8 @@ import AboutSection from "./components/AboutSection";
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import MarqueeSection from "./components/MarqueeSection";
+import SocialBar from "./components/SocialBar";
 
-import SocialBar from "./components/SocialBar"; // 👈 new import
 import "./index.css";
 
 function App() {
@@ -40,11 +41,12 @@ function App() {
       <section id="hero">
         <HeroSection />
       </section>
-            <MarqueeSection />
+
+      <MarqueeSection />
+
       <section id="about">
         <AboutSection />
       </section>
-
 
       <section id="skills">
         <SkillsSection />
@@ -58,8 +60,11 @@ function App() {
         <Contact />
       </section>
 
-      {/* 👇 Floating vertical social footer (appears on all pages) */}
+      {/* Floating Social Bar */}
       <SocialBar />
+
+      {/* ✅ Vercel Analytics */}
+      <Analytics />
     </main>
   );
 }
