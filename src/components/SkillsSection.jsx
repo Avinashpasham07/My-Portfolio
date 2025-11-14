@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import {
   SiNextdotjs,
@@ -23,19 +22,29 @@ import {
 const SkillsSection = () => {
   const tagCloudRef = useRef(null);
 
-  // === Animated Floating Icons ===
   useEffect(() => {
     const icons = tagCloudRef.current.querySelectorAll(".icon-float");
+    // Responsive radius based on screen width
+    let radius;
+    if (window.innerWidth < 370) {
+      radius = 55;
+    } else if (window.innerWidth < 500) {
+      radius = 75;
+    } else if (window.innerWidth < 768) {
+      radius = 105;
+    } else {
+      radius = 150;
+    }
     icons.forEach((icon, i) => {
       const angle = (i / icons.length) * 360;
-      const x = 150 * Math.cos((angle * Math.PI) / 180);
-      const y = 150 * Math.sin((angle * Math.PI) / 180);
+      const x = radius * Math.cos((angle * Math.PI) / 180);
+      const y = radius * Math.sin((angle * Math.PI) / 180);
       icon.style.transform = `translate(${x}px, ${y}px)`;
     });
 
     let angle = 0;
     const rotate = () => {
-      angle += 0.2;
+      angle += 0.18; // slightly slower for smoother mobile feel
       tagCloudRef.current.style.transform = `rotate(${angle}deg)`;
       requestAnimationFrame(rotate);
     };
@@ -67,13 +76,23 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section className="min-h-screen -ml-50  flex flex-col md:flex-row items-center justify-center px-8 py-20">
-      {/* Left Side - Animated Tech Icons */}
-      <div className="relative flex-1 flex justify-center items-center h-[400px] md:h-[500px] mb-16 md:mb-0">
+    <section
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center
+        px-3 sm:px-6 md:px-16 lg:px-24 py-10 md:py-20"
+    >
+      {/* Left - Animated Icons */}
+      <div className="relative flex-1 flex justify-center items-center
+        h-[170px] xs:h-[210px] sm:h-[280px] md:h-[400px] mb-10 md:mb-0"
+      >
         <div
           ref={tagCloudRef}
-          className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] transition-all duration-500"
-        >
+          className="
+            relative
+            w-[115px] xs:w-[160px] sm:w-[225px] md:w-[300px]
+            h-[115px] xs:h-[160px] sm:h-[225px] md:h-[300px]
+            transition-all duration-500
+            overflow-visible
+          ">
           {[
             SiReact,
             SiNextdotjs,
@@ -92,7 +111,11 @@ const SkillsSection = () => {
           ].map((Icon, index) => (
             <div
               key={index}
-              className="icon-float absolute left-1/2 top-1/2 text-4xl text-[#5a4a4a] opacity-80"
+              className="
+                icon-float absolute left-1/2 top-1/2
+                text-lg xs:text-xl sm:text-2xl md:text-4xl
+                text-[#5a4a4a] opacity-80
+              "
               style={{ transform: "translate(-50%, -50%)" }}
             >
               <Icon />
@@ -101,28 +124,32 @@ const SkillsSection = () => {
         </div>
       </div>
 
-      {/* Right Side - Skill Cards */}
-      <div className="flex-1 text-center md:text-left space-y-10">
-        <h2 className="text-4xl font-bold text-[#3b2f2f]">
-          Skills & <span className="text-[#b88b4a]">Technologies</span>
+      {/* Right - Skill Cards */}
+      <div className="flex-1 w-full text-center md:text-left space-y-8">
+        <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-[#3b2f2f]">
+          Skills <span className="text-[#b88b4a]">& Technologies</span>
         </h2>
 
-        {/* Skill Categories */}
-        <div className="space-y-8">
+        <div className="space-y-7">
           {[["Frontend", frontend], ["Backend", backend], ["Tools", tools]].map(
             ([title, items], i) => (
               <div key={i}>
-                <h3 className="text-2xl font-semibold text-[#3b2f2f] mb-4">
+                <h3 className="text-lg xs:text-xl sm:text-2xl font-semibold text-[#3b2f2f] mb-2">
                   {title}
                 </h3>
-                <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                <div className="flex flex-wrap gap-2 xs:gap-3 sm:gap-4 justify-center md:justify-start">
                   {items.map(({ name, icon: Icon }, idx) => (
                     <div
                       key={idx}
-                      className="px-5 py-3 bg-[#fff7eb]  rounded-2xl shadow-md flex items-center gap-3 hover:bg-[#f2e4d3] transition-all duration-300"
+                      className="
+                        px-3 xs:px-4 py-2 sm:px-5 sm:py-3
+                        bg-[#fff7eb] rounded-2xl shadow
+                        flex items-center gap-2 sm:gap-3
+                        hover:bg-[#f2e4d3] transition-all duration-300
+                      "
                     >
-                      <Icon className="text-2xl text-[#3b2f2f] hover:text-[#b88b4a]" />
-                      <span className="font-medium text-[#3b2f2f]">{name}</span>
+                      <Icon className="text-base xs:text-lg sm:text-2xl text-[#3b2f2f] hover:text-[#b88b4a]" />
+                      <span className="font-medium text-[#3b2f2f] text-xs xs:text-sm sm:text-base">{name}</span>
                     </div>
                   ))}
                 </div>
@@ -136,15 +163,3 @@ const SkillsSection = () => {
 };
 
 export default SkillsSection;
-
-
-
-
-
-
-
-
-
-
-
- 
