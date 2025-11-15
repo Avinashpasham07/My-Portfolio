@@ -160,8 +160,35 @@ const ProjectsSection = () => {
       storyLink: "https://github.com/Avinashpasham07/MemoRoam.git",
       reverse: false,
     },
+    
+
     {
-  index: "02",
+      index: "02",
+      title: "AI Finance Mentor",
+      description:
+        "An intelligent financial advisor that analyzes spending, savings & gives personalized guidance. Built using Flask + GPT models.",
+      tech: ["Python", "Flask", "OpenAI API", "HTML", "CSS", "JS"],
+      images: [
+        Fin1,
+        Fin2
+      ],
+      projectLink: "",
+      storyLink: "https://github.com/Avinashpasham07/gdg_prj_2025.git",
+      reverse: true,
+    },
+{
+  index: "03",
+  title: "EduTutor AI – Smart Learning Assistant",
+  description:
+    "An AI-powered personalized learning system that generates lessons, quizzes, flashcards, and explanations instantly. Built using LangChain + Mixtral with a clean UI for students to study smarter and faster.",
+  tech: ["React", "Streamlit", "LangChain", "Mixtral AI", "Python", "Flask"],
+  images: [ Edu2, Edu3, Edu4],
+  projectLink: "",
+  storyLink: "https://github.com/Avinashpasham07/EduTutor-AI.git",
+  reverse: false,
+},
+{
+  index: "04",
   title: "OnIT-India – Instant Local Help & Task Assistance Platform",
   description:
     "OnIT-India is a real-time platform that connects people who need help with trusted helpers nearby—instantly and with zero commission. Users can post tasks such as plumbing fixes, home cleaning, tutoring, moving assistance, or daily errands. Verified helpers in the area can respond immediately.",
@@ -179,37 +206,10 @@ const ProjectsSection = () => {
     Onit3,
     Onit4,
   ],
-  projectLink: "https://onitindia.com/",
+  projectLink: "",
   storyLink: "",
   reverse: true,
 },
-
-    {
-      index: "03",
-      title: "AI Finance Mentor",
-      description:
-        "An intelligent financial advisor that analyzes spending, savings & gives personalized guidance. Built using Flask + GPT models.",
-      tech: ["Python", "Flask", "OpenAI API", "HTML", "CSS", "JS"],
-      images: [
-        Fin1,
-        Fin2
-      ],
-      projectLink: "",
-      storyLink: "https://github.com/Avinashpasham07/gdg_prj_2025.git",
-      reverse: true,
-    },
-{
-  index: "04",
-  title: "EduTutor AI – Smart Learning Assistant",
-  description:
-    "An AI-powered personalized learning system that generates lessons, quizzes, flashcards, and explanations instantly. Built using LangChain + Mixtral with a clean UI for students to study smarter and faster.",
-  tech: ["React", "Streamlit", "LangChain", "Mixtral AI", "Python", "Flask"],
-  images: [ Edu2, Edu3, Edu4],
-  projectLink: "",
-  storyLink: "https://github.com/Avinashpasham07/EduTutor-AI.git",
-  reverse: false,
-},
-
 
 
   ];
