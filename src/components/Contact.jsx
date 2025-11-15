@@ -8,8 +8,21 @@ export default function Contact() {
       className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-[#FAF7F2] px-5 sm:px-8 md:px-12 lg:px-20 py-20 gap-10"
     >
 
-      {/* ========== LEFT SIDE (70%) ========== */}
-      <div className="basis-full md:basis-[70%] flex flex-col items-center md:items-start">
+      {/* ========== RIGHT SIDE (ANIMATION FIRST ON MOBILE) ========== */}
+      <div className="basis-full md:basis-[30%] flex justify-center items-center order-1 md:order-2">
+        <iframe
+          src="https://lottie.host/embed/4cacd561-3db6-444e-b594-37325a85a134/gTnDW7Z1Mm.lottie"
+          style={{
+            width: "100%",
+            maxWidth: "380px",
+            height: "380px",
+            border: "none",
+          }}
+        ></iframe>
+      </div>
+
+      {/* ========== LEFT SIDE (FORM FIRST ON DESKTOP) ========== */}
+      <div className="basis-full md:basis-[70%] flex flex-col items-center md:items-start order-2 md:order-1">
 
         {/* Heading */}
         <div className="text-center md:text-left mb-14">
@@ -100,18 +113,6 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* ========== RIGHT SIDE (30%) - LOTTIE ========== */}
-      <div className="basis-full md:basis-[30%] flex justify-center items-center">
-        <iframe
-          src="https://lottie.host/embed/4cacd561-3db6-444e-b594-37325a85a134/gTnDW7Z1Mm.lottie"
-          style={{
-            width: "100%",
-            maxWidth: "380px",
-            height: "380px",
-            border: "none",
-          }}
-        ></iframe>
-      </div>
     </section>
   );
 }
