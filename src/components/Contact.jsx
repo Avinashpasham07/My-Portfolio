@@ -5,114 +5,157 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-between bg-[#FAF7F2] px-5 sm:px-8 md:px-12 lg:px-20 py-20 gap-10"
+      className="
+        min-h-screen 
+        flex flex-col 
+        bg-[#FAF7F2] 
+        px-5 sm:px-8 md:px-12 lg:px-20 
+        py-12 md:py-20 
+        gap-10
+      "
     >
 
-      {/* ========== RIGHT SIDE (ANIMATION FIRST ON MOBILE) ========== */}
-      <div className="basis-full md:basis-[30%] flex justify-center items-center order-1 md:order-2">
-        <iframe
-          src="https://lottie.host/embed/4cacd561-3db6-444e-b594-37325a85a134/gTnDW7Z1Mm.lottie"
-          style={{
-            width: "100%",
-            maxWidth: "380px",
-            height: "380px",
-            border: "none",
-          }}
-        ></iframe>
+      {/* ================= HEADING (FULL WIDTH) ================= */}
+      <div className="w-full text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#3b2f2f] tracking-tight mb-2">
+          Get In <span className="text-[#b88b4a]">Touch</span>
+        </h2>
+        <p className="text-sm sm:text-base text-[#3b2f2f]/70 max-w-xl mx-auto">
+          Let’s build something meaningful together
+        </p>
       </div>
 
-      {/* ========== LEFT SIDE (FORM FIRST ON DESKTOP) ========== */}
-      <div className="basis-full md:basis-[70%] flex flex-col items-center md:items-start order-2 md:order-1">
+      {/* ================= DESKTOP ROW: FORM LEFT (70%) + ANIMATION RIGHT (30%) ================= */}
+      <div className="
+        w-full 
+        flex flex-col md:flex-row 
+        justify-between 
+        items-start 
+        gap-10 md:gap-6
+      ">
+        
+        {/* ==== FORM (LEFT 70%) — ON MOBILE BELOW ANIMATION ==== */}
+        <div className="order-2 md:order-1 basis-full md:basis-[70%] flex flex-col items-center md:items-start">
 
-        {/* Heading */}
-        <div className="text-center md:text-left mb-14">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#3b2f2f] mb-3 tracking-tight">
-            Get In <span className="text-[#b88b4a]">Touch</span>
-          </h2>
-          <p className="text-base sm:text-lg text-[#3b2f2f]/70 max-w-2xl">
-            Let’s build something meaningful together
-          </p>
+          {/* CONTACT GRID */}
+          <div className="
+            w-full 
+            grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 
+            gap-3 sm:gap-4
+          ">
+
+            {/* EMAIL */}
+            <a
+              href="mailto:avinashpasham18@gmail.com"
+              className="
+                col-span-2 sm:col-span-1 md:col-span-2
+                bg-white/70 backdrop-blur-md 
+                border border-[#3b2f2f20] 
+                p-5 sm:p-7 
+                rounded-3xl 
+                text-[#3b2f2f] 
+                hover:shadow-[0_0_25px_rgba(184,139,74,0.25)]
+                hover:-translate-y-1 
+                transition-all duration-500 
+                relative overflow-hidden
+              "
+            >
+              <SiGmail className="w-10 h-10 sm:w-12 sm:h-12 text-[#b88b4a] mb-3" />
+              <h3 className="text-xl sm:text-2xl font-bold">Email Me</h3>
+              <p className="text-[#3b2f2f]/70 text-xs sm:text-sm">
+                avinashpasham18@gmail.com
+              </p>
+            </a>
+
+            {/* LINKEDIN */}
+            <a
+              href="https://www.linkedin.com/in/avinashyadavpasham/"
+              target="_blank"
+              className="
+                bg-white/70 backdrop-blur-md 
+                border border-[#3b2f2f20] 
+                p-5 sm:p-7 
+                rounded-3xl 
+                hover:shadow-[0_0_25px_rgba(184,139,74,0.25)]
+                hover:-translate-y-1 
+                transition-all duration-500
+              "
+            >
+              <SiLinkedin className="w-8 h-8 sm:w-10 sm:h-10 text-[#0a66c2] mb-3" />
+              <h3 className="text-lg sm:text-xl font-bold">LinkedIn</h3>
+              <p className="text-[#3b2f2f]/70 text-xs sm:text-sm">
+                avinash pasham
+              </p>
+            </a>
+
+            {/* WHATSAPP */}
+            <a
+              href="https://wa.me/918099301082"
+              target="_blank"
+              className="
+                bg-white/70 backdrop-blur-md 
+                border border-[#3b2f2f20] 
+                p-5 sm:p-7 
+                rounded-3xl 
+                hover:shadow-[0_0_25px_rgba(184,139,74,0.25)]
+                hover:-translate-y-1 
+                transition-all duration-500
+              "
+            >
+              <SiWhatsapp className="w-10 h-10 sm:w-12 sm:h-12 text-[#25D366] mb-3" />
+              <h3 className="text-xl sm:text-2xl font-bold">WhatsApp</h3>
+              <p className="text-[#3b2f2f]/70 text-xs sm:text-sm">
+                +91 80993 01082
+              </p>
+            </a>
+
+            {/* GITHUB */}
+            <a
+              href="https://github.com/Avinashpasham07"
+              target="_blank"
+              className="
+                col-span-2 sm:col-span-1 md:col-span-2
+                bg-white/70 backdrop-blur-md 
+                border border-[#3b2f2f20] 
+                p-5 sm:p-7 
+                rounded-3xl 
+                hover:shadow-[0_0_25px_rgba(184,139,74,0.25)]
+                hover:-translate-y-1 
+                transition-all duration-500
+              "
+            >
+              <SiGithub className="w-8 h-8 sm:w-10 sm:h-10 text-[#000] mb-3" />
+              <h3 className="text-lg sm:text-xl font-bold">GitHub</h3>
+              <p className="text-[#3b2f2f]/70 text-xs sm:text-sm">
+                Avinashpasham07
+              </p>
+            </a>
+          </div>
         </div>
 
-        {/* Bento Grid */}
-        <div className="w-full max-w-6xl grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4">
-
-          {/* Email */}
-          <a
-            href="mailto:avinashpasham18@gmail.com"
-            className="col-span-2 sm:col-span-1 md:col-span-2 bg-white/70 backdrop-blur-md border border-[#3b2f2f30] p-6 sm:p-8 rounded-3xl text-[#3b2f2f] hover:shadow-[0_0_25px_rgba(184,139,74,0.25)] hover:-translate-y-1 transition-all duration-500 group relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#b88b4a10] rounded-full -translate-y-14 translate-x-14 group-hover:scale-150 transition-transform duration-500"></div>
-            <SiGmail className="w-10 h-10 sm:w-14 sm:h-14 mb-3 text-[#b88b4a] relative z-10" />
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 relative z-10">
-              Email Me
-            </h3>
-            <p className="text-[#3b2f2f]/70 text-xs sm:text-sm md:text-base relative z-10">
-              avinashpasham18@gmail.com
-            </p>
-          </a>
-
-          {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/in/avinashyadavpasham/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white/70 backdrop-blur-md border border-[#3b2f2f30] p-6 sm:p-8 rounded-3xl text-[#3b2f2f] hover:shadow-[0_0_25px_rgba(184,139,74,0.25)] hover:-translate-y-1 transition-all duration-500"
-          >
-            <SiLinkedin className="w-8 h-8 sm:w-10 sm:h-10 mb-3 text-[#0a66c2]" />
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1">
-              LinkedIn
-            </h3>
-            <p className="text-[#3b2f2f]/70 text-xs sm:text-sm md:text-base">
-              avinash pasham
-            </p>
-          </a>
-
-          {/* WhatsApp */}
-          <a
-            href="https://wa.me/918099301082"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white/70 backdrop-blur-md border border-[#3b2f2f30] p-6 sm:p-8 rounded-3xl text-[#3b2f2f] hover:shadow-[0_0_25px_rgba(184,139,74,0.25)] hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group"
-          >
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#b88b4a10] rounded-full translate-y-14 -translate-x-14 group-hover:scale-150 transition-transform duration-500"></div>
-            <SiWhatsapp className="w-10 h-10 sm:w-14 sm:h-14 mb-3 text-[#25D366] relative z-10" />
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 relative z-10">
-              WhatsApp
-            </h3>
-            <p className="text-[#3b2f2f]/70 text-xs sm:text-sm md:text-base relative z-10">
-              +91 80993 01082
-            </p>
-          </a>
-
-          {/* GitHub */}
-          <a
-            href="https://github.com/Avinashpasham07"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="col-span-2 sm:col-span-1 md:col-span-2 bg-white/70 backdrop-blur-md border border-[#3b2f2f30] p-6 sm:p-8 rounded-3xl text-[#3b2f2f] hover:shadow-[0_0_25px_rgba(184,139,74,0.25)] hover:-translate-y-1 transition-all duration-500 overflow-hidden group"
-          >
-            <div className="absolute bottom-0 right-0 w-42 h-42 bg-[#b88b4a10] rounded-full translate-y-14 -translate-x-14 group-hover:scale-180 transition-transform duration-500"></div>
-            <SiGithub className="w-8 h-8 sm:w-10 sm:h-10 mb-3 text-[#24292f]" />
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1">
-              GitHub
-            </h3>
-            <p className="text-[#3b2f2f]/70 text-xs sm:text-sm md:text-base">
-              Avinashpasham07
-            </p>
-          </a>
+        {/* ==== ANIMATION RIGHT (30%) — ON MOBILE ABOVE FORM) ==== */}
+        <div className="order-1 md:order-2 basis-full md:basis-[30%] flex justify-center items-center">
+          <iframe
+            src="https://lottie.host/embed/4cacd561-3db6-444e-b594-37325a85a134/gTnDW7Z1Mm.lottie"
+            style={{
+              width: "100%",
+              maxWidth: "320px",
+              height: "320px",
+              border: "none",
+            }}
+          ></iframe>
         </div>
 
-        {/* Footer */}
-        <div className="mt-10 text-center md:text-left text-xs sm:text-sm text-[#3b2f2f]/70">
-          <p>
-            Designed & Built by{" "}
-            <span className="text-[#b88b4a] font-medium">Avinash Yadav</span>
-          </p>
-          <p>© {new Date().getFullYear()} All Rights Reserved</p>
-        </div>
       </div>
 
+      {/* ================= FOOTER (FULL WIDTH) ================= */}
+      <div className="w-full text-center text-xs sm:text-sm text-[#3b2f2f]/70">
+        <p>
+          Designed & Built by{" "}
+          <span className="text-[#b88b4a] font-medium">Avinash Yadav</span>
+        </p>
+        <p>© {new Date().getFullYear()} All Rights Reserved</p>
+      </div>
     </section>
   );
 }
