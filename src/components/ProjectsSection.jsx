@@ -147,8 +147,8 @@ const ProjectsSection = () => {
         "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=800&q=80",
       ],
-      projectLink: "#",
-      storyLink: "#",
+      projectLink: "https://memo-roam.onrender.com/listing",
+      storyLink: "https://github.com/Avinashpasham07/MemoRoam.git",
       reverse: false,
     },
     {
