@@ -119,7 +119,7 @@ const HeroSection = () => {
   "APIs",
   "System Design"
 ];
-
+<br/>
   &nbsp;&nbsp;<span class='text-[#9CDCFE]'>goal</span>: "Beautiful & scalable apps";<br/>
 }<br/><br/>
 <span class='text-[#569CD6]'>export const</span> mission = () =><br/>
