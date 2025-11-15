@@ -185,7 +185,7 @@ const ProjectsSection = () => {
         Fin2
       ],
       projectLink: "",
-      storyLink: "#",
+      storyLink: "https://github.com/Avinashpasham07/gdg_prj_2025.git",
       reverse: true,
     },
 
