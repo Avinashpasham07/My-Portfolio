@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 
+https://github.com/Avinashpasham07/My-Portfolio.git
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
