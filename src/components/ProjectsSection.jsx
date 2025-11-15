@@ -180,7 +180,7 @@ const ProjectsSection = () => {
     Onit4,
   ],
   projectLink: "https://onitindia.com/",
-  storyLink: "https://github.com/Avinashpasham07/Onitindia.git",
+  storyLink: "",
   reverse: true,
 },
 
