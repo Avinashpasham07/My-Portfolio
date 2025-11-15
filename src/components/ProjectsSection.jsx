@@ -151,9 +151,31 @@ const ProjectsSection = () => {
       storyLink: "#",
       reverse: false,
     },
+    {
+  index: "02",
+  title: "OnIT-India – Instant Local Help & Task Assistance Platform",
+  description:
+    "OnIT-India is a real-time platform that connects people who need help with trusted helpers nearby—instantly and with zero commission. Users can post tasks such as plumbing fixes, home cleaning, tutoring, moving assistance, or daily errands. Verified helpers in the area can respond immediately.",
+  tech: [
+    "React",
+    "Node.js",
+    "MongoDB",
+    "Express",
+    "JWT Auth",
+    "AI Matching"
+  ],
+  images: [
+    "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=800&q=80"
+  ],
+  projectLink: "https://onitindia.com/",
+  storyLink: "https://github.com/Avinashpasham07/Onitindia.git",
+  reverse: true,
+},
 
     {
-      index: "02",
+      index: "03",
       title: "AI Finance Mentor",
       description:
         "An intelligent financial advisor that analyzes spending, savings & gives personalized guidance. Built using Flask + GPT models.",
@@ -168,7 +190,7 @@ const ProjectsSection = () => {
     },
 
 {
-  index: "03",
+  index: "04",
   title: "EduTutor AI – Smart Learning Assistant",
   description:
     "An AI-powered personalized learning system that generates lessons, quizzes, flashcards, and explanations instantly. Built using LangChain + Mixtral with a clean UI for students to study smarter and faster.",
