@@ -122,8 +122,9 @@ const HeroSection = () => {
 <br/>
   &nbsp;&nbsp;<span class='text-[#9CDCFE]'>goal</span>: "Beautiful & scalable apps";<br/>
 }<br/><br/>
-<span class='text-[#569CD6]'>export const</span> mission = () =><br/>
-&nbsp;&nbsp;"Turning ideas into clean modern experiences 🚀";`]}
+<span class='text-[#569CD6]'>export const</span> mission = () => { <br/>
+&nbsp;&nbsp;"Turning ideas into clean modern experiences 🚀";  <br/>
+&nbsp;&nbsp;}`]}
                 typeSpeed={28}
                 showCursor
                 cursorChar="|"
