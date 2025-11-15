@@ -5,8 +5,15 @@ import Fin2 from "../assets/fin-2.png";
 import Edu2 from "../assets/edu-2.png";
 import Edu3 from "../assets/edu-3.png";
 import Edu4 from "../assets/edu-4.png";
-
-
+import Mem1 from "../assets/mem-1.png";
+import Mem2 from "../assets/mem-2.png";
+import Mem3 from "../assets/mem-3.png";
+import Mem5 from "../assets/mem-5.png";
+import Mem6 from "../assets/mem-6.png";
+import Onit1 from "../assets/onit-1.png";
+import Onit2 from "../assets/onit-2.png";
+import Onit3 from "../assets/onit-3.png";
+import Onit4 from "../assets/onit-4.png";
 const ProjectCard = ({
   index,
   title,
@@ -143,9 +150,11 @@ const ProjectsSection = () => {
         "A modern stay-booking platform allowing users to explore rooms, book stays, and manage listings. Built using the MERN stack with MapBox & secure payments.",
       tech: ["MongoDB", "Express", "React", "Node.js", "MapBox", "Stripe"],
       images: [
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=800&q=80",
+       Mem1,
+       Mem2,
+       Mem3,
+       Mem5,
+       Mem6,
       ],
       projectLink: "https://memo-roam.onrender.com/listing",
       storyLink: "https://github.com/Avinashpasham07/MemoRoam.git",
@@ -165,9 +174,10 @@ const ProjectsSection = () => {
     "AI Matching"
   ],
   images: [
-    "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=800&q=80"
+    Onit1,
+    Onit2,
+    Onit3,
+    Onit4,
   ],
   projectLink: "https://onitindia.com/",
   storyLink: "https://github.com/Avinashpasham07/Onitindia.git",
@@ -188,7 +198,6 @@ const ProjectsSection = () => {
       storyLink: "https://github.com/Avinashpasham07/gdg_prj_2025.git",
       reverse: true,
     },
-
 {
   index: "04",
   title: "EduTutor AI – Smart Learning Assistant",
