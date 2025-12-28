@@ -53,7 +53,7 @@ const SkillsSection = () => {
       {/* LEFT SIDE — LOTTIE ANIMATION */}
       <div className="flex-1 flex justify-center items-center h-[250px] sm:h-[320px] md:h-[420px] mb-10 md:mb-0">
         <iframe
-          src="https://lottie.host/embed/be624f07-7fc7-4597-b818-db1f5a31df5e/RH7tDb57Xd.lottie"
+          src="https://lottie.host/embed/563176e4-514d-4f2e-9c76-b120b31882ac/X144xeZXmO.lottie"
           style={{
             width: "100%",
             maxWidth: "360px",

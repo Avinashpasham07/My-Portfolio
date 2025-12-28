@@ -28,7 +28,7 @@ export default function Contact() {
       {/* ================= MOBILE ANIMATION (reduced gap) ================= */}
       <div className="order-2 md:hidden flex justify-center mt-3">
         <iframe
-          src="https://lottie.host/embed/4cacd561-3db6-444e-b594-37325a85a134/gTnDW7Z1Mm.lottie"
+          src="https://lottie.host/embed/a94777a0-4035-4997-9220-d679eb370d1f/MROxEeASVr.lottie"
           style={{
             width: "100%",
             maxWidth: "260px",
@@ -144,7 +144,7 @@ export default function Contact() {
         {/* ===== DESKTOP ANIMATION (kept same) ===== */}
         <div className="hidden md:flex basis-[30%] justify-center items-center order-2">
           <iframe
-            src="https://lottie.host/embed/4cacd561-3db6-444e-b594-37325a85a134/gTnDW7Z1Mm.lottie"
+            src="https://lottie.host/embed/a94777a0-4035-4997-9220-d679eb370d1f/MROxEeASVr.lottie"
             style={{
               width: "100%",
               maxWidth: "330px",
