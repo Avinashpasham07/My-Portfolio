@@ -42,8 +42,8 @@
 }
 
 * {
-  margin: 5;
-  padding: 5;
+  margin: auto;
+  padding: auto;
   box-sizing: border-box;
   cursor: none !important;
 }

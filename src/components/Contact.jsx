@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SpotlightCard from "./SpotlightCard";
 import Magnetic from "./Magnetic";
@@ -6,9 +6,9 @@ import { SiGmail, SiLinkedin, SiGithub, SiWhatsapp } from "react-icons/si";
 import { FaArrowUp, FaRegCopy, FaCheck } from "react-icons/fa";
 
 const Contact = () => {
-  const [time, setTime] = React.useState(new Date());
+  const [time, setTime] = useState(new Date());
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -19,6 +19,7 @@ const Contact = () => {
     hour12: true,
     timeZone: 'Asia/Kolkata'
   });
+
   const [copied, setCopied] = useState(false);
   const email = "avinashpasham18@gmail.com";
 
@@ -60,7 +61,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="relative w-full py-10 bg-[#030303] overflow-hidden">
+    <section id="contact" className="relative w-full py-24 md:py-52 bg-[#030303] overflow-hidden">
 
       {/* --- Atmosphere --- */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />
@@ -69,8 +70,8 @@ const Contact = () => {
       <div className="container mx-auto px-4 relative z-10">
 
         {/* --- Header --- */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-24">
-          <div className="space-y-6">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-20 md:mb-32">
+          <div className="space-y-6 w-full md:w-auto">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -96,17 +97,17 @@ const Contact = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-white/40 text-sm md:text-base font-mono max-w-xs leading-relaxed text-right"
+            className="text-white/40 text-sm md:text-base font-mono max-w-xs leading-relaxed text-left md:text-right mt-4 md:mt-0"
           >
             Currently open for full-time engineering roles.
           </motion.p>
         </div>
 
         {/* --- The Cyber Grid --- */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 h-auto md:h-[400px]">
+        <div className="grid mt-20 grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 h-auto md:h-[400px]">
 
-          {/* 1. Main Email Card (Takes up 2 columns) */}
-          <div className="md:col-span-2 h-full">
+          {/* 1. Main Email Card */}
+          <div className="md:col-span-2 h-[300px] md:h-full">
             <SpotlightCard className="h-full bg-[#050505] border border-white/10 rounded-3xl p-8 relative group overflow-hidden flex flex-col justify-between">
               <div className="absolute inset-0 bg-gradient-to-br from-[#c2a4ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -123,9 +124,9 @@ const Contact = () => {
                 <h3 className="text-white/40 font-mono text-xs uppercase tracking-widest">Drop a line</h3>
                 <div
                   onClick={handleCopy}
-                  className="text-2xl md:text-4xl font-display font-bold text-white cursor-pointer hover:text-[#c2a4ff] transition-colors flex items-center gap-4"
+                  className="text-2xl md:text-4xl font-display font-bold text-white cursor-pointer hover:text-[#c2a4ff] transition-colors flex items-center gap-4 flex-wrap"
                 >
-                  <span>avinash...18@gmail</span>
+                  <span className="break-all">avinash...18@gmail</span>
                   <AnimatePresence mode="wait">
                     {copied ? (
                       <motion.span
@@ -153,15 +154,15 @@ const Contact = () => {
             </SpotlightCard>
           </div>
 
-          {/* 2. Social Stack (Remaining 2 columns) */}
-          <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-2 gap-4 h-full">
+          {/* 2. Social Stack */}
+          <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
             {socialLinks.map((social, idx) => (
               <Magnetic key={idx} strength={0.2}>
                 <a
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block h-full"
+                  className="block h-[180px] md:h-full"
                 >
                   <SpotlightCard className={`h-full bg-[#050505] border border-white/10 rounded-3xl p-6 flex flex-col justify-between group transition-all duration-500 ${social.bg}`}>
                     <div className="flex justify-between items-start">
@@ -185,9 +186,9 @@ const Contact = () => {
               </Magnetic>
             ))}
 
-            {/* 3. Resume / CV Link (Or extra social) */}
+            {/* 3. Resume / CV Link */}
             <Magnetic strength={0.2}>
-              <div onClick={scrollToTop} className="cursor-pointer h-full">
+              <div onClick={scrollToTop} className="cursor-pointer h-[180px] md:h-full">
                 <SpotlightCard className="h-full bg-[#c2a4ff] border border-[#c2a4ff] rounded-3xl p-6 flex flex-col justify-center items-center group relative overflow-hidden">
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                   <FaArrowUp className="text-3xl text-black relative z-10 group-hover:-translate-y-1 transition-transform" />
@@ -202,32 +203,8 @@ const Contact = () => {
         </div>
 
         {/* --- Footer Signature --- */}
-        <div className="mt-32 border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-              <span className="text-[#c2a4ff] font-black text-xs">A</span>
-            </div>
-            <span className="text-white/40 text-xs font-mono tracking-widest uppercase">
-              Avinash Yadav © 2026
-            </span>
-          </div>
+        {/* UPDATED: Increased margin-top (mt-40 md:mt-60) to push it down significantly */}
 
-          <div className="flex flex-wrap justify-center md:justify-end gap-x-12 gap-y-4 text-[10px] font-mono uppercase text-white/20 tracking-[0.2em]">
-            <div className="flex flex-col md:items-end">
-              <span className="text-white/40 mb-1">Location</span>
-              <span className="hover:text-white transition-colors cursor-pointer">HYD, IN — 17.38° N</span>
-            </div>
-            <div className="flex flex-col md:items-end text-right">
-              <span className="text-white/40 mb-1">Availability</span>
-              <span className="hover:text-white transition-colors cursor-pointer">Open for Full stack Roles</span>
-            </div>
-            <div className="flex flex-col md:items-end text-right">
-              <span className="text-white/40 mb-1">Local Time</span>
-              <span className="hover:text-white transition-colors cursor-pointer">{formattedTime} IST</span>
-            </div>
-
-          </div>
-        </div>
 
       </div>
     </section>
