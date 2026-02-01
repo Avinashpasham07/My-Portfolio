@@ -69,15 +69,15 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Massive Impact Headline */}
-          <div className="relative mb-8 md:mb-16">
-            <div className="flex flex-col items-center leading-[0.8]">
+          <div className="relative mb-8 md:mb-16 w-full flex flex-col items-center px-4">
+            <div className="flex flex-col items-center leading-[0.8] w-full">
               {/* Line 1: AVINASH */}
-              <div className="flex overflow-hidden">
+              <div className="flex overflow-hidden py-2 px-4">
                 {titleWordTop.map((letter, i) => (
                   <motion.span
                     key={i}
                     variants={letterVariants}
-                    className="text-[clamp(3rem,12vw,12rem)] font-display mb-2 md:mb-5 font-black uppercase text-white tracking-tight md:tracking-[-0.05em]"
+                    className="text-[clamp(2.5rem,10vw,12rem)] font-display mb-2 md:mb-5 font-black uppercase text-white tracking-tight md:tracking-[-0.05em]"
                   >
                     {letter}
                   </motion.span>
@@ -85,12 +85,12 @@ const HeroSection = () => {
               </div>
 
               {/* Line 2: YADAV (Italic) */}
-              <div className="flex overflow-hidden mt-[-1vw] md:mt-[-2vw]">
+              <div className="flex overflow-hidden mt-[-1vw] md:mt-[-2vw] py-2 px-8">
                 {titleWordBottom.map((letter, i) => (
                   <motion.span
                     key={i}
                     variants={letterVariants}
-                    className="text-[clamp(3rem,12vw,12rem)] font-display font-black md:ml-[-1rem] uppercase text-[#c2a4ff] tracking-tight md:tracking-[-0.05em] italic"
+                    className="text-[clamp(2.5rem,10vw,12rem)] font-display font-black md:ml-[-1rem] uppercase text-[#c2a4ff] tracking-tight md:tracking-[0.05em] "
                   >
                     {letter}
                   </motion.span>

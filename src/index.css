@@ -1,31 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Syne:wght@400..800&family=Inter+Tight:wght@100..900&display=swap');
 @import "tailwindcss";
 
-:root {
-  --bg-primary: #030303;
-  --bg-secondary: #080808;
-  --accent-primary: #D4AF37;
-  /* Bronze-Gold */
-  --accent-secondary: #c2a4ff;
-  /* Huzaif Purple Accent */
-  --text-primary: #FAF7F2;
-  --text-dim: rgba(250, 247, 242, 0.4);
-
-  --font-main: 'Outfit', sans-serif;
-  --font-display: 'Syne', sans-serif;
-  --font-mono: 'Space Mono', monospace;
-
-  --font-size-huge: 8vw;
-  --font-size-title: 4vw;
-}
-
-@theme {
-  --font-sans: 'Outfit', ui-sans-serif, system-ui;
-  --font-display: 'Syne', sans-serif;
-  --font-mono: 'Space Mono', monospace;
-  --color-huzaif: #c2a4ff;
-}
-
 ::selection {
   background-color: rgba(194, 164, 255, 0.2);
   color: #fff;
@@ -39,11 +14,6 @@
 * {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-* {
-  margin: auto;
-  padding: auto;
   box-sizing: border-box;
   cursor: none !important;
 }
@@ -54,9 +24,9 @@
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: var(--font-main);
+  background-color: #030303;
+  color: #FAF7F2;
+  font-family: 'Outfit', sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

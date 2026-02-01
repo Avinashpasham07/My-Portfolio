@@ -115,7 +115,7 @@ const ProjectsSection = () => {
               >
                 <div className="w-[1px] h-24 bg-gradient-to-b from-transparent via-[#c2a4ff] to-transparent mx-auto mb-8" />
                 <h2 className="text-[15vw] leading-[0.8] font-display font-black text-white uppercase tracking-tighter">
-                  M<span className="mb-2 text-transparent bg-clip-text bg-gradient-to-br from-[#c2a4ff] to-white/20">y</span>
+                  M<span className="mb-6 text-transparent bg-clip-text bg-gradient-to-br from-[#c2a4ff] to-white/20">y</span>
                 </h2>
                 <h2 className="text-[15vw] leading-[0.8] font-display font-black text-white/5 uppercase tracking-tighter -mt-4 md:-mt-8">
                   WORK.
