@@ -1,230 +1,229 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import Fin1 from "../assets/fin-1.png";
-import Fin2 from "../assets/fin-2.png";
-import Edu2 from "../assets/edu-2.png";
-import Edu3 from "../assets/edu-3.png";
-import Edu4 from "../assets/edu-4.png";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import SpotlightCard from "./SpotlightCard";
+import Magnetic from "./Magnetic";
+
+// Assets
 import Mem1 from "../assets/mem-1.png";
-import Mem2 from "../assets/mem-2.png";
-import Mem3 from "../assets/mem-3.png";
-import Mem5 from "../assets/mem-5.png";
-import Mem6 from "../assets/mem-6.png";
+import Fin1 from "../assets/fin-1.png";
+import Edu2 from "../assets/edu-2.png";
 import Onit1 from "../assets/onit-1.png";
-import Onit2 from "../assets/onit-2.png";
-import Onit3 from "../assets/onit-3.png";
-import Onit4 from "../assets/onit-4.png";
-const ProjectCard = ({
-  index,
-  title,
-  description,
-  tech,
-  images,
-  projectLink,
-  storyLink,
-  reverse,
-}) => {
-  const [currentImage, setCurrentImage] = useState(0);
-
-  // Auto slide
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3500);
-    return () => clearInterval(interval);
-  }, [images.length]);
-
-  return (
-    <section
-      className={`flex flex-col ${
-        reverse ? "md:flex-row-reverse" : "md:flex-row"
-      } items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-20 bg-[#FAF7F2] text-[#3b2f2f]`}
-    >
-      {/* === LEFT CONTENT === */}
-      <motion.div
-        className={`flex-1 space-y-5 ${
-          reverse ? "md:pl-10" : "md:pr-10"
-        } text-center md:text-left`}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-        viewport={{ once: true }}
-      >
-        <p className="text-[#b88b4a] text-lg font-medium">// {index}</p>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold">
-          {title}
-        </h2>
-
-        <p className="momo-trust-display text-[#5a4a4a] leading-relaxed max-w-xl mx-auto md:mx-0 text-base sm:text-lg">
-          {description}
-        </p>
-
-        {/* === TECH STACK === */}
-        <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-6">
-          {tech.map((item, idx) => (
-            <span
-              key={idx}
-              className="px-4 py-1 border border-[#b88b4a] text-[#b88b4a] rounded-full text-sm hover:bg-[#b88b4a] hover:text-white transition-all duration-300"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-
-        {/* === CONDITIONAL BUTTONS === */}
-        <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
-
-          {/* Show only if projectLink exists */}
-          {projectLink && projectLink.trim() !== "" && (
-            <a
-              href={projectLink}
-              target="_blank"
-              rel="noreferrer"
-              className="bg-[#b88b4a] text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-[#a3793e] transition-all text-sm sm:text-base"
-            >
-              ↗ View Project
-            </a>
-          )}
-
-          {/* Show only if storyLink exists */}
-          {storyLink && storyLink.trim() !== "" && (
-            <a
-              href={storyLink}
-              target="_blank"
-              rel="noreferrer"
-              className="bg-[#fff7eb] border border-[#b88b4a] px-6 py-3 rounded-lg font-semibold text-[#3b2f2f] hover:bg-[#f3e3cc] transition-all text-sm sm:text-base"
-            >
-              Code
-            </a>
-          )}
-
-        </div>
-      </motion.div>
-
-      {/* === RIGHT IMAGE SLIDESHOW === */}
-      <motion.div
-        className="flex-1 flex justify-center mt-12 md:mt-0 w-full"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-        viewport={{ once: true }}
-      >
-        <div className="relative w-[90%] sm:w-[80%] md:w-[500px] lg:w-[550px]">
-          <div className="relative mx-auto bg-[#d6d2cb] rounded-t-[20px] border-[4px] border-[#bfb8ae] shadow-2xl overflow-hidden">
-            <div className="relative bg-black rounded-t-[14px] p-3">
-              <div className="flex justify-center mb-2">
-                <div className="w-3 h-3 bg-red-500 rounded-full mx-1" />
-                <div className="w-3 h-3 bg-yellow-400 rounded-full mx-1" />
-                <div className="w-3 h-3 bg-green-500 rounded-full mx-1" />
-              </div>
-
-              {/* === FADE SLIDESHOW === */}
-              <motion.div
-                key={currentImage}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-              >
-                <img
-                  src={images[currentImage]}
-                  alt={`${title} screenshot ${currentImage + 1}`}
-                  className="rounded-lg w-full h-[200px] sm:h-[250px] md:h-[300px] object-contain
- transition-all duration-1000"
-                />
-              </motion.div>
-            </div>
-          </div>
-          <div className="w-full h-5 bg-[#bfb8ae] rounded-b-[8px] shadow-inner" />
-        </div>
-      </motion.div>
-    </section>
-  );
-};
+import EduP from "../assets/edup.png";
+import vin from "../assets/vindu.png";
+import aud from "../assets/aud.png"
 
 const ProjectsSection = () => {
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  // 0% -> -100% -> -200% -> -300% -> -400% -> -500% -> -600% -> -700%
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-87.5%"]);
+
   const projects = [
-    {
-      index: "01",
-      title: "MemoRoam – Smart Stay Booking Platform",
-      description:
-        "A modern stay-booking platform allowing users to explore rooms, book stays, and manage listings. Built using the MERN stack with MapBox & secure payments.",
-      tech: ["MongoDB", "Express", "React", "Node.js", "MapBox", "Stripe"],
-      images: [
-       Mem1,
-       Mem2,
-       Mem3,
-       Mem5,
-       Mem6,
-      ],
-      projectLink: "https://memo-roam.onrender.com/listing",
-      storyLink: "https://github.com/Avinashpasham07/MemoRoam.git",
-      reverse: false,
-    },
-    
 
     {
-      index: "02",
-      title: "AI Finance Mentor",
-      description:
-        "An intelligent financial advisor that analyzes spending, savings & gives personalized guidance. Built using Flask + GPT models.",
-      tech: ["Python", "Flask", "OpenAI API", "HTML", "CSS", "JS"],
-      images: [
-        Fin1,
-        Fin2
-      ],
-      projectLink: "",
-      storyLink: "https://github.com/Avinashpasham07/gdg_prj_2025.git",
-      reverse: true,
+      id: "01",
+      title: "EduCareerPrep",
+      category: "AI EdTech Platform",
+      stack: ["React", "Node.js", "MongoDB", "OpenAI", "Framer Motion"],
+      description: "An AI-driven career development portal featuring automated path generation and mock interview simulations. Provides personalized roadmaps based on real-time market data analysis.",
+      image: EduP,
+      link: "https://edu-careerprep-18.vercel.app/",
     },
-{
-  index: "03",
-  title: "EduTutor AI – Smart Learning Assistant",
-  description:
-    "An AI-powered personalized learning system that generates lessons, quizzes, flashcards, and explanations instantly. Built using LangChain + Mixtral with a clean UI for students to study smarter and faster.",
-  tech: ["React", "Streamlit", "LangChain", "Mixtral AI", "Python", "Flask"],
-  images: [ Edu2, Edu3, Edu4],
-  projectLink: "",
-  storyLink: "https://github.com/Avinashpasham07/EduTutor-AI.git",
-  reverse: false,
-},
-{
-  index: "04",
-  title: "OnIT-India – Instant Local Help & Task Assistance Platform",
-  description:
-    "OnIT-India is a real-time platform that connects people who need help with trusted helpers nearby—instantly and with zero commission. Users can post tasks such as plumbing fixes, home cleaning, tutoring, moving assistance, or daily errands. Verified helpers in the area can respond immediately.",
-  tech: [
-    "React",
-    "Node.js",
-    "MongoDB",
-    "Express",
-    "JWT Auth",
-    "AI Matching"
-  ],
-  images: [
-    Onit1,
-    Onit2,
-    Onit3,
-    Onit4,
-  ],
-  projectLink: "",
-  storyLink: "",
-  reverse: true,
-},
-
+    {
+      id: "02",
+      title: "Vindu",
+      category: "Reactive E-Commerce",
+      stack: ["React", "Node.js", "MongoDB", "Tailwind CSS", "Google Maps"],
+      description: "A high-performance food delivery ecosystem with real-time merchant-to-customer synchronization. Features a reactive ordering pipeline and dynamic location-based discovery.",
+      image: vin,
+      link: "https://vindu-food-delivery.vercel.app/home",
+    },
+    {
+      id: "03",
+      title: "MemoRoam",
+      category: "Full-Stack MERN",
+      stack: ["React", "Node.js", "MongoDB", "Framer Motion"],
+      description: "A high-performance travel architecture enabling seamless discovery and booking of unique global stays. Features real-time availability sync and ultra-low latency interactive maps.",
+      image: Mem1,
+      link: "https://memo-roam.onrender.com/listing",
+    },
+    {
+      id: "04",
+      title: "OnIT India",
+      category: "Real-time Mesh",
+      stack: ["React Native", "Socket.io", "Redis", "Google Maps"],
+      description: "Hyper-local service mesh connecting urban taskers. Supports real-time tracking and automated conflict resolution via a reactive geo-distributed backend.",
+      image: Onit1,
+      link: "www.onitindia.com",
+    },
+    {
+      id: "05",
+      title: "AudiNix",
+      category: "B2B SaaS Architecture",
+      stack: ["React", "Node.js", "MongoDB", "Framer Motion"],
+      description: "A zero-inventory wholesale engine for electronic resellers. Bridges the gap between primary suppliers and distributors through automated inventory syncing and fulfillment workflows.",
+      image: aud,
+      link: "https://www.audionixresellers.com/",
+    },
+    {
+      id: "06",
+      title: "AI Finance",
+      category: "Neural Networks",
+      stack: ["Python", "TensorFlow", "React", "PostgreSQL"],
+      description: "Predictive behavioral modeling for financial growth. Analyzes spending patterns to provide hyper-personalized investment strategies using deep learning.",
+      image: Fin1,
+      link: "https://github.com/Avinashpasham07/gdg_prj_2025.git",
+    },
+    {
+      id: "07",
+      title: "EduTutor AI",
+      category: "LLM Orchestration",
+      stack: ["Next.js", "OpenAI", "Pinecone", "LangChain"],
+      description: "Intelligent knowledge graph system adapting to student learning styles. Features conversational RAG and automated curriculum generation.",
+      image: Edu2,
+      link: "https://github.com/Avinashpasham07/EduTutor-AI.git",
+    },
 
   ];
 
   return (
-    <div className="bg-[#FAF7F2] py-20 px-4 sm:px-6">
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center mb-14 text-[#3b2f2f] tracking-tight">
-        <span className="text-[#b88b4a]">//</span> My Projects{" "}
-        <span className="text-[#b88b4a]">//</span>
-      </h1>
+    // Height is 800vh because we have 8 "screens" of content (1 Intro + 7 Projects)
+    <section ref={sectionRef} id="projects" className="relative h-[800vh] bg-[#030303] overflow-visible scroll-mt-20">
 
-      {projects.map((proj, idx) => (
-        <ProjectCard key={idx} {...proj} />
-      ))}
-    </div>
+      {/* --- Ambient Background --- */}
+      <div className="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />
+
+      {/* Sticky Container for Horizontal Movement */}
+      <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
+
+        {/* Animated Horizontal Strip */}
+        <div className="flex-1 flex items-center relative z-10">
+          <motion.div style={{ x }} className="flex h-full">
+
+            {/* --- SLIDE 0: Intro Title --- */}
+            <div className="w-screen flex-shrink-0 h-screen flex flex-col items-center justify-center relative z-20">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
+                className="text-center"
+              >
+                <div className="w-[1px] h-24 bg-gradient-to-b from-transparent via-[#c2a4ff] to-transparent mx-auto mb-8" />
+                <h2 className="text-[15vw] leading-[0.8] font-display font-black text-white uppercase tracking-tighter">
+                  M<span className="mb-2 text-transparent bg-clip-text bg-gradient-to-br from-[#c2a4ff] to-white/20">y</span>
+                </h2>
+                <h2 className="text-[15vw] leading-[0.8] font-display font-black text-white/5 uppercase tracking-tighter -mt-4 md:-mt-8">
+                  WORK.
+                </h2>
+                <p className="mt-8 text-[#c2a4ff] font-mono text-xs md:text-sm tracking-[0.5em] uppercase">
+                  Scroll to Initialize Archive
+                </p>
+              </motion.div>
+            </div>
+
+            {/* --- SLIDES 1-4: Projects --- */}
+            {projects.map((project, idx) => (
+              <div key={idx} className="w-screen flex-shrink-0 h-screen flex items-center justify-center p-4 md:p-16">
+
+                {/* THE CARD CONTAINER */}
+                <div className="w-full max-w-[1400px] h-[85vh] md:h-[80vh] grid grid-rows-[40%_60%] md:grid-rows-1 md:grid-cols-2 gap-0 rounded-[2rem] overflow-hidden border border-white/10 bg-[#050505] shadow-2xl relative group">
+
+                  {/* LEFT/TOP: Visuals */}
+                  <div className="relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10">
+                    <div className="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors duration-500" />
+                    <motion.img
+
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-contain grayscale-0 hover:grayscale transition-all duration-700"
+                    />
+
+                    {/* Floating ID */}
+                    <div className="absolute top-6 left-6 z-20">
+                      <span className="text-8xl font-display font-black text-white/10 leading-none">
+                        {project.id}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* RIGHT/BOTTOM: Details */}
+                  <div className="relative flex flex-col justify-between p-6 md:p-16 bg-[#080808]/95 backdrop-blur-xl overflow-y-auto md:overflow-y-visible custom-scrollbar">
+
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-4 mb-4 md:mb-6">
+                        <div className="h-[1px] w-8 md:w-12 bg-[#c2a4ff]" />
+                        <span className="text-[#c2a4ff] font-mono text-[10px] md:text-xs tracking-[0.3em] uppercase">{project.category}</span>
+                      </div>
+
+                      <h3 className="text-4xl md:text-7xl font-display font-black text-white uppercase tracking-tighter mb-4 md:mb-8 leading-[0.9]">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-white/60 text-base md:text-xl font-light leading-relaxed mb-6 md:mb-12 max-w-xl">
+                        {project.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 md:gap-3 mb-8 md:mb-12">
+                        {project.stack.map((tech, tIdx) => (
+                          <span key={tIdx} className="px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-white/10 bg-white/5 text-[10px] md:text-xs text-white/50 font-mono uppercase tracking-wider hover:border-[#c2a4ff]/50 hover:text-white transition-colors cursor-default">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="relative z-10">
+                      {project.link ? (
+                        <Magnetic strength={0.3}>
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-4 group/btn"
+                          >
+                            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-black transition-all duration-300">
+                              <span className="text-xl md:text-2xl -rotate-45 group-hover/btn:rotate-0 transition-transform duration-300">→</span>
+                            </div>
+                            <span className="text-[10px] md:text-sm font-mono tracking-[0.2em] text-white/50 uppercase group-hover/btn:text-white transition-colors">
+                              View Deployment
+                            </span>
+                          </a>
+                        </Magnetic>
+                      ) : (
+                        <div className="flex items-center gap-3 opacity-50 cursor-not-allowed">
+                          <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center">
+                            <span className="text-xl">🔒</span>
+                          </div>
+                          <span className="text-sm font-mono tracking-[0.2em] text-white/30 uppercase">Confidential</span>
+                        </div>
+                      )}
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            ))}
+
+          </motion.div>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-white/5">
+          <motion.div
+            style={{ scaleX: scrollYProgress }}
+            className="h-full bg-[#c2a4ff] origin-left shadow-[0_0_15px_#c2a4ff]"
+          />
+        </div>
+
+      </div>
+    </section>
   );
 };
 

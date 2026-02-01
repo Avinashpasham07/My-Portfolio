@@ -10,32 +10,60 @@ import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import MarqueeSection from "./components/MarqueeSection";
 import SocialBar from "./components/SocialBar";
+import Cursor from "./components/Cursor";
+import M2 from "./components/marquee-1"
+import PhilosophySection from "./components/PhilosophySection";
 
 import "./index.css";
 
-function App() {
+const App = () => {
   useEffect(() => {
+    const handleMouseMove = (e) => {
+      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
+      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
+
+      // Kinetic Spotlight Movement
+      const spotlight = document.querySelector(".spotlight-element");
+      if (spotlight) {
+        spotlight.style.left = `${e.clientX}px`;
+        spotlight.style.top = `${e.clientY}px`;
+        spotlight.style.opacity = "1";
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
     const lenis = new Lenis({
-      duration: 1.2,
-      smooth: true,
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smoothTouch: true,
-      touchMultiplier: 1.2,
-      infinite: false,
+      duration: 1.5, // Even smoother v6 feel
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 1.1,
     });
 
-    const raf = (time) => {
+    function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
-    };
-    requestAnimationFrame(raf);
+    }
 
-    return () => lenis.destroy();
+    requestAnimationFrame(raf);
+    window.lenis = lenis; // Expose for programmatic scrolling
+
+    return () => {
+      lenis.destroy();
+      window.lenis = null;
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   return (
-    <main className="bg-[#FAF7F2] text-[#3b2f2f] relative">
+    <main className="bg-[#030303] text-white relative">
+      <Cursor />
+      {/* Cinematic Masterpiece Overlays */}
+      <div className="noise-overlay" />
+      <div className="spotlight-element" />
+
       <Navbar />
 
       <section id="hero">
@@ -44,29 +72,17 @@ function App() {
 
       <MarqueeSection />
 
-      <section id="about">
-        <AboutSection />
-      </section>
+      <AboutSection />
 
-      <section id="skills">
-        <SkillsSection />
-      </section>
+      <SkillsSection />
+      <ProjectsSection />
+      <M2 />
+      <Contact />
 
-      <section id="projects">
-        <ProjectsSection />
-      </section>
-
-      <section id="contact">
-        <Contact />
-      </section>
-
-      {/* Floating Social Bar */}
       <SocialBar />
-
-      {/* ✅ Vercel Analytics */}
       <Analytics />
     </main>
   );
-}
+};
 
 export default App;

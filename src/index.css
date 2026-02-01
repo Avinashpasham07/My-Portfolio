@@ -1,123 +1,142 @@
-
-
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Syne:wght@400..800&family=Inter+Tight:wght@100..900&display=swap');
 @import "tailwindcss";
 
-/* ✅ Custom Marquee Animation */
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes marquee2 {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
-}
-.animate-marquee {
-  display: flex;
-  animation: marquee 25s linear infinite;
-}
-.animate-marquee2 {
-  display: flex;
-  animation: marquee2 25s linear infinite;
-}
-section {
-  position: relative;
-  overflow: hidden;
-}
-section::before {
-  content: "";
-  position: absolute;
-  top: var(--y);
-  left: var(--x);
-  width: 400px;
-  height: 400px;
-  transform: translate(-50%, -50%);
- background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-section:hover::before {
-  opacity: 1;
-}
-html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100%;
-  overflow-x: hidden;
-}
-@keyframes floating {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-.floating {
-  animation: floating 4s ease-in-out infinite;
-}
-.glow {
-  box-shadow: 0 0 25px rgba(255, 209, 102, 0.3);
-  transition: box-shadow 0.3s ease-in-out;
-}
-.glow:hover {
-  box-shadow: 0 0 40px rgba(255, 209, 102, 0.6);
+:root {
+  --bg-primary: #030303;
+  --bg-secondary: #080808;
+  --accent-primary: #D4AF37;
+  /* Bronze-Gold */
+  --accent-secondary: #c2a4ff;
+  /* Huzaif Purple Accent */
+  --text-primary: #FAF7F2;
+  --text-dim: rgba(250, 247, 242, 0.4);
+
+  --font-main: 'Outfit', sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --font-size-huge: 8vw;
+  --font-size-title: 4vw;
 }
 
-body {
-  background-color: #FAF7F2;
-  font-family: "Poppins", sans-serif;
+@theme {
+  --font-sans: 'Outfit', ui-sans-serif, system-ui;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --color-huzaif: #c2a4ff;
 }
 
-h1, h2 {
-  font-family: "Poppins", sans-serif;
-}
-.icon-float {
-  transition: transform 0.5s ease, opacity 0.3s;
-}
-.perspective-1000 {
-  perspective: 1000px;
+::selection {
+  background-color: rgba(194, 164, 255, 0.2);
+  color: #fff;
 }
 
-@keyframes gentleFloat {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-html {
-  scroll-behavior: smooth;
-}
+/* Hide Scrollbar for Cinematic Feel */
 ::-webkit-scrollbar {
   display: none;
 }
-html,
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+* {
+  margin: 5;
+  padding: 5;
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+*:hover,
+*:active {
+  cursor: none !important;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #faf7f2;
-  scroll-behavior: auto; /* Disable default smooth scroll */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
   overflow-x: hidden;
-  font-family: "Poppins", sans-serif;
-  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+/* --- High-End Refined Noise --- */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.012;
+  /* Even more subtle for v6 Perfection */
 }
-::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
+
+/* --- Atmospheric Lighting (Huzaif-Inspired Masterpiece) --- */
+.bg-atmosphere {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(194, 164, 255, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(194, 164, 255, 0.02) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
-.momo-trust-display {
-  font-family: "Momo Trust Display", sans-serif;
-  font-weight: 200;
-  font-style: normal;
+
+/* --- Glassmorphism Luxe --- */
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-dark {
+  background: rgba(3, 3, 3, 0.6);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+/* --- Spotlight Utility Fine-Tuned --- */
+.spotlight-element {
+  position: fixed;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(194, 164, 255, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* Cinematic Scale Utils */
+.tracking-cinematic {
+  letter-spacing: 0.4em;
+}
+
+.tracking-tight-impact {
+  letter-spacing: -0.05em;
 }
